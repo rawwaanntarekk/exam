@@ -40,7 +40,7 @@ namespace Examination_System
             {
                 Console.Write("Please Enter The Body of Question: ");
                 body = Console.ReadLine() ?? "";
-            } while (string.IsNullOrEmpty(body));
+            } while (string.IsNullOrEmpty(body) || !body.Any(char.IsLetter));
 
             return body;
         }
@@ -69,6 +69,10 @@ namespace Examination_System
         // ----------------------------------------------------------------------------------------------------------------------------------------
 
         public abstract Question CreateQuestion();
+
+        // ----------------------------------------------------------------------------------------------------------------------------------------
+
+        
         #endregion
     }
 }

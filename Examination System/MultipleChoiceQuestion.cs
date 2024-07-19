@@ -9,8 +9,7 @@ namespace Examination_System
 {
     internal class MultipleChoiceQuestion : Question
     {
-        // Constructor takes the body of the question, the mark of the question, the correct answer and the answers
-        // the header is fixed for this type of question
+       
         #region Constructors
 
         public MultipleChoiceQuestion()
@@ -18,8 +17,10 @@ namespace Examination_System
             Header = "Choose One Answer Correct";
         }
 
+        // Constructor takes the body of the question, the mark of the question, the correct answer and the answers
+        // the header is fixed for this type of question.
 
-        public MultipleChoiceQuestion(string _body, int _mark, Answer _correctAnswer, Answer[] _answers)
+        private MultipleChoiceQuestion(string _body, int _mark, Answer _correctAnswer, Answer[] _answers)
             : base("Choose One Answer Correct", _body, _mark, _correctAnswer, _answers) { }
 
         // ----------------------------------------------------------------------------------------------------------------------------------------
@@ -34,7 +35,7 @@ namespace Examination_System
         #region Methods
 
         // Recieving & Validating the Answers => No Null or Empty Answers and Answer = 4
-        public Answer[] ValidateAnswers()
+        private Answer[] ValidateAnswers()
         {
             Answer[] answers = new Answer[4];
             string text;
@@ -46,7 +47,11 @@ namespace Examination_System
                     Console.Write($"Please Enter The Answer Number {i + 1}: ");
                     text = Console.ReadLine() ?? "";
                     while (Array.Exists(answers, answer => answer.Text == text))
+                    {
                         Console.WriteLine("You Can't Add Duplicate Answers");
+                        text = "";
+
+                    }
 
 
                 } while (string.IsNullOrEmpty(text));
@@ -64,7 +69,7 @@ namespace Examination_System
             int index;
             do
             {
-                Console.Write("Please Enter The Index of The Correct Answer: ");
+                Console.Write("Please Enter The Number of The Correct Answer: ");
             } while (!int.TryParse(Console.ReadLine() ?? "0", out index) || index < 1 || index > 4);
 
             return index;

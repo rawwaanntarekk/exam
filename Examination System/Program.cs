@@ -10,6 +10,11 @@
             Console.WriteLine(question);
 
 
+            MultipleChoiceQuestion multipleChoiceQuestion = new MultipleChoiceQuestion();
+            Question question1 = multipleChoiceQuestion.CreateQuestion();
+            Console.WriteLine(question1);
+
+
             
 
 
