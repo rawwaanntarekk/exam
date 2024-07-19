@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Examination_System
 {
-    internal class Answer
+    internal struct Answer
     {
         #region Properties
 
@@ -15,12 +15,22 @@ namespace Examination_System
 
         #endregion
 
+        // --------------------------------------------------------------------------------------------------------------------
 
-        public Answer(int _id , string _text)
+        public Answer(int _id, string _text)
         {
             Id = _id;
-            Text = _text;  
+            Text = _text;
         }
+
+        // --------------------------------------------------------------------------------------------------------------------
+
+        public override string ToString()
+        {
+            return $"Answer Id: {Id}\nAnswer Text: {Text}";
+        }
+
+        // --------------------------------------------------------------------------------------------------------------------
     }
 
 

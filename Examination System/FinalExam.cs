@@ -8,7 +8,7 @@ namespace Examination_System
 {
     internal class FinalExam : Exam
     {
-        public FinalExam(double _time, int _questionNumber, Question[] _questions)
+        public FinalExam(int _time, int _questionNumber, Question[] _questions)
                : base(_time, _questionNumber, _questions)
         {
         }

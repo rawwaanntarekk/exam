@@ -14,6 +14,39 @@ namespace Examination_System
         public TFQuestion(string _body, int _mark, Answer _correctAnswer)
             : base("True | False Question", _body, _mark, _correctAnswer, [new Answer(1, "True"), new Answer(2, "False")]) { }
 
+
+        public TFQuestion() { 
+
+            Header = "True | False Question";
+            Answers = [new Answer(1, "True"), new Answer(2, "False")];
+        
+        }
+
+        // ----------------------------------------------------------------------------------------------------------------------------------------
+
+
+        private protected override int ValidateCorrectAnswerIndex()
+        {
+            int index;
+            do
+            {
+                Console.Write("Please Enter The Index of The Correct Answer: ");
+            } while (!int.TryParse(Console.ReadLine() ?? "0", out index) || index < 1 || index > 2);
+
+            return index;
+        }
+
+        // ----------------------------------------------------------------------------------------------------------------------------------------
+
+        public override Question CreateQuestion()
+        {
+            string body = ValidateBody();
+            int mark = ValidateMark();
+            Answer correctAnswer = Answers[ValidateCorrectAnswerIndex() - 1];
+            return new TFQuestion(body, mark, correctAnswer);
+
+        }
+
         #endregion
     }
 }

@@ -4,7 +4,18 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+
+            TFQuestion tfQuestion = new TFQuestion();
+            Question question = tfQuestion.CreateQuestion();
+            Console.WriteLine(question);
+
+
+            
+
+
+
+
+
         }
     }
 }

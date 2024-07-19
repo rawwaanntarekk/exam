@@ -10,18 +10,22 @@ namespace Examination_System
     {
         #region Properties
 
-        public double Time { get; set; }
+        public int Time { get; set; }
         public int QuestionNumber { get; set; }
         public Question[] Questions { get; set; }
         #endregion
 
         #region Constructors
-        public Exam(double _time, int _questionNumber, Question[] _questions)
+        public Exam(int _time, int _questionNumber, Question[] _questions)
         {
             Time = _time;
             QuestionNumber = _questionNumber;
             Questions = _questions;
         }
         #endregion
+
+        
+
+
     }
 }
